@@ -11,18 +11,15 @@ else:
 
 init(autoreset=True)
 
-api_id = 111111111 # change me
-api_hash = "22222222222222222222" # change me
+api_id = "11111" # change me
+api_hash = "2222222222" # change me
 app = Client("my_account", api_id=api_id, api_hash=api_hash)
 
 prefix = "."
 own_chat = -100000000000 # change me
 
-
-@app.on_message(filters.command("get_id", prefixes=prefix))
-def get_channel_id(client, message):
+def get_chat_id(client, message, channel_name):
     try:
-        query = " ".join(message.text.split(" ")[1:])
 
         messages_id = []
         titles = []
@@ -36,9 +33,8 @@ def get_channel_id(client, message):
 
         c = 0
         for i in titles:
-            if query == i:
-                message.edit(f"ID for {query}: `{messages_id[c]}`")
-                return f"Id for {query}: {messages_id[c]}"
+            if channel_name == i:
+                return f"{messages_id[c]}"
             else:
                 pass
             c += 1
@@ -55,9 +51,11 @@ def videos(client, message):
     try:
         longer = float(splited_message[1])
         less = float(splited_message[2])
-        chat_id = " ".join(splited_message[4:])
+        channel_name = " ".join(splited_message[4:])
+        chat_id = get_chat_id(client, message, channel_name=channel_name)
         if splited_message[3]:
             limit = int(splited_message[3])
+        
     except Exception as e:
         message.edit_text(f"Error: {e}")
         # print(f"{e}")
