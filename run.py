@@ -58,7 +58,6 @@ def videos(client, message):
         chat_id = " ".join(splited_message[4:])
         if splited_message[3]:
             limit = int(splited_message[3])
-            print(longer, less, limit, chat_id)
     except Exception as e:
         message.edit_text(f"Error: {e}")
         # print(f"{e}")
