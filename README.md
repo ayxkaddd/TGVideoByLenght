@@ -6,8 +6,8 @@ Copy videos from given channel by its lenght to your channel
 Fill ```api_id``` and ```api_hash``` at run.py
 
 Then run this command at telegram chat
-```.get <channel name> <longer then> <less then> <limit>```
+```.get <longer then> <less then> <limit> <channel name>```
 
-e.g: ```.get CuteCats 0.5 10.0 10```
+e.g: ```.get 0.5 10.0 10 Cute Cats```
 
 Prefix can be changed at run.py
